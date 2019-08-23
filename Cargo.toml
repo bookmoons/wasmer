@@ -90,6 +90,7 @@ backend-singlepass = [
     "wasmer-middleware-common/singlepass"
 ]
 wasi = ["wasmer-wasi"]
+managed = ["backend-singlepass", "wasmer-runtime-core/managed"]
 # vfs = ["wasmer-runtime-abi"]
 
 [[example]]
