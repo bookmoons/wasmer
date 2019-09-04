@@ -64,6 +64,7 @@ jobs:
     variables:
       rust_toolchain: nightly-2019-08-15
     steps:
+      - template: .azure/install-rust.yml
       - bash: cargo install cargo-fuzz
       - bash: ./fuzzit.sh local-regression
 
