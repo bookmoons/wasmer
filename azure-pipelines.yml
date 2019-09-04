@@ -68,6 +68,16 @@ jobs:
       - bash: cargo install cargo-fuzz
       - bash: ./fuzzit.sh local-regression
 
+  - job: Fuzz
+    pool:
+      vmImage: "ubuntu-16.04"
+    variables:
+      rust_toolchain: nightly-2019-08-15
+    steps:
+      - template: .azure/install-rust.yml
+      - bash: cargo install cargo-fuzz
+      - bash: ./fuzzit.sh fuzzing
+
   # - job: Check
   #   pool:
   #     vmImage: "ubuntu-16.04"
