@@ -64,6 +64,7 @@ jobs:
     variables:
       rust_toolchain: nightly-2019-08-15
     steps:
+      - bash: cargo install cargo-fuzz
       - bash: ./fuzzit.sh local-regression
 
   # - job: Check
