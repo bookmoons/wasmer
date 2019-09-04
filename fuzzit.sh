@@ -6,10 +6,6 @@ if [ "$#" -ne 1 ]; then
     echo "Usage: $0 <fuzz-type>"
     exit 1
 fi
-if [ -z "$FUZZIT_API_KEY" ]; then
-    echo "Set FUZZIT_API_KEY to your Fuzzit API key"
-    exit 2
-fi
 
 # Configure
 NAME=wasmer
@@ -22,7 +18,7 @@ if [ ! -f fuzzit ]; then
 fi
 
 # Fuzz
-TARGET=$NAME
+TARGET=simple-instantiate
 FUZZER=simple_instantiate
 cargo fuzz run $FUZZER -- -runs=0
-./fuzzit create job --type $TYPE $TARGET fuzz/target/x86_64-unknown-linux-gnu/debug/$FUZZER
+./fuzzit create job --type $TYPE $NAME/$TARGET fuzz/target/x86_64-unknown-linux-gnu/debug/$FUZZER
