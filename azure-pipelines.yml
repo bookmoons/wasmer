@@ -59,7 +59,7 @@ jobs:
 
   - job: Fuzz_regression
     pool:
-      vmImage: "ubuntu 18.04"
+      vmImage: "ubuntu-18.04"
     variables:
       rust_toolchain: nightly-2019-08-15
     steps:
