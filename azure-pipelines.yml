@@ -62,10 +62,11 @@ jobs:
       vmImage: "ubuntu 18.04"
     variables:
       rust_toolchain: nightly-2019-08-15
-    - task: Bash@3
-      inputs:
-        filePath: 'fuzzit.sh'
-        arguments: 'local-regression'
+    steps:
+      - task: Bash@3
+        inputs:
+          filePath: 'fuzzit.sh'
+          arguments: 'local-regression'
 
   - job: Check
     pool:
