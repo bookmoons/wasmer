@@ -78,7 +78,7 @@ jobs:
       - bash: cargo install cargo-fuzz
       - bash: ./fuzzit.sh fuzzing
         env:
-          FUZZIT_API_KEY: ${FUZZIT_API_KEY}
+          FUZZIT_API_KEY: $(FUZZIT_API_KEY)
 
   # - job: Check
   #   pool:
