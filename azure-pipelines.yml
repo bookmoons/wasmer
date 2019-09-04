@@ -57,6 +57,16 @@ jobs:
         displayName: Tests (Windows)
         condition: and(succeeded(), eq(variables['Agent.OS'], 'Windows_NT'))
 
+  - job: Fuzz_regression
+    pool:
+      vmImage: "ubuntu 18.04"
+    variables:
+      rust_toolchain: nightly-2019-08-15
+    - task: Bash@3
+      inputs:
+        filePath: 'fuzzit.sh'
+        arguments: 'local-regression'
+
   - job: Check
     pool:
       vmImage: "ubuntu-16.04"
