@@ -22,7 +22,7 @@ if [ ! -f fuzzit ]; then
 fi
 
 # Fuzz
-TARGET=$NAME
+TARGET=simple-instantiate
 FUZZER=simple_instantiate
 cargo fuzz run $FUZZER -- -runs=0
-./fuzzit create job --type $TYPE $TARGET fuzz/target/x86_64-unknown-linux-gnu/debug/$FUZZER
+./fuzzit create job --type $TYPE $NAME/$TARGET fuzz/target/x86_64-unknown-linux-gnu/debug/$FUZZER
